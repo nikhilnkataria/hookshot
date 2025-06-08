@@ -4,10 +4,11 @@ import axios, { AxiosError } from 'axios';
 import db from '../configs/db';
 import { redisConnection } from '../configs/redis';
 import { webhookDLQueue } from '../queues/webhook.dlq';
+import { DLQ_QUEUE_NAME, RETRY_QUEUE_NAME } from '../configs/constants';
 
 export function startWebHookWorker() {
   const worker = new Worker(
-    'webhook-delivery',
+    RETRY_QUEUE_NAME,
     async (job: Job) => {
       const { id } = job.data;
 
@@ -94,11 +95,7 @@ export function startWebHookWorker() {
 
           // Optional: push to DLQ queue
           // await dlqQueue.add('webhook-dead', { id });
-          await webhookDLQueue.add(
-            'webhook-delivery-dlq',
-            { id },
-            { jobId: id }
-          );
+          await webhookDLQueue.add(DLQ_QUEUE_NAME, { id }, { jobId: id });
         }
 
         throw err; // Let BullMQ handle retry

@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
 import db from '../configs/db';
+import { RETRY_QUEUE_NAME } from '../configs/constants';
 import { WebhookInterface } from '../types/webhook';
 import { webhookQueue } from '../queues/webhook';
 
@@ -20,7 +21,7 @@ export const createWebhook = async (data: WebhookInterface) => {
   const attempts = Math.min(Math.max(data.retry_config.max_attempts, 1), 5);
 
   await webhookQueue.add(
-    'webhook-delivery',
+    RETRY_QUEUE_NAME,
     { id },
     {
       removeOnComplete: 100, // keep 100 successful completed job
