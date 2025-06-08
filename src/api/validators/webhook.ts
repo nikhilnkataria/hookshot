@@ -19,3 +19,7 @@ export const webhookSchema = Joi.object({
       .required(),
   }).required(),
 });
+
+export const jobIdParamSchema = Joi.object({
+  id: Joi.string().uuid({ version: 'uuidv4' }).required(),
+});

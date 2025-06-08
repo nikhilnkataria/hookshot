@@ -36,3 +36,25 @@ export const createWebhook = async (data: WebhookInterface) => {
 
   return id;
 };
+
+export const getWebhookStatusService = async (id: string) => {
+  const webhook = await db('webhooks').where({ id }).first();
+
+  if (!webhook) return null;
+
+  return {
+    webhook_id: webhook.id,
+    latest_status: webhook.status,
+    last_attempt_at: webhook.updated_at,
+  };
+};
+
+export const getWebhookAttemptsService = async (id: string) => {
+  const attempts = await db('webhook_attempts')
+    .where({ webhook_id: id })
+    .orderBy('created_at', 'desc');
+
+  if (!attempts) return null;
+
+  return attempts;
+};
