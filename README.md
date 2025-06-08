@@ -1,4 +1,4 @@
-# 🔁 Webhook Retry Manager
+# 🔁 HookSpot - Webhook Retry Manager
 
 A production-ready, plug-and-play backend queue-based delivery service for **reliable webhook delivery with retry logic**, dead letter queue (DLQ) handling, and visibility APIs.
 
