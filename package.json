@@ -1,0 +1,32 @@
+{
+  "name": "hookshot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.9.0",
+    "bullmq": "^5.53.2",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "ioredis": "^5.6.1",
+    "joi": "^17.13.3",
+    "knex": "^3.1.0",
+    "morgan": "^1.10.0",
+    "pg": "^8.16.0",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^22.15.30",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3"
+  }
+}
