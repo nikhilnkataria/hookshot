@@ -1,6 +1,6 @@
 # 🔁 Webhook Retry Manager
 
-A production-ready, plug-and-play backend service for **reliable webhook delivery with retry logic**, dead letter queue (DLQ) handling, and visibility APIs.
+A production-ready, plug-and-play backend queue-based delivery service for **reliable webhook delivery with retry logic**, dead letter queue (DLQ) handling, and visibility APIs.
 
 ---
 
@@ -113,7 +113,12 @@ Jobs that fail after all retry attempts go into the DLQ. You can:
 
 ## 👨‍💻 Author
 
-Built by Nikhil Kataria, Engineering Manager (Node.js, AWS, Redis, MERN stack, scalable systems).
+Built by [Nikhil Kataria](https://www.linkedin.com/in/nikhilnkataria) —  
+Engineering Manager | Node.js | AWS | Scalable Systems
+
+- 🔗 Portfolio: [yourdomain.com](https://nikhilkataria.com)
+- 💼 LinkedIn: [linkedin.com/in/nikhil-kataria](https://www.linkedin.com/in/nikhilnkataria)
+- 💻 GitHub: [github.com/yourusername](https://github.com/nikhilnkataria)
 
 ## 🛡 License
 
