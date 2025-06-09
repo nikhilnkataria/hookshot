@@ -70,7 +70,7 @@ Webhooks often fail due to downtime, rate limits, or flaky receivers. This servi
 | POST   | `/webhooks`              | Register and trigger a webhook |
 | GET    | `/webhooks/:id/attempts` | List all delivery attempts     |
 | GET    | `/webhooks/:id/status`   | Get current delivery status    |
-| GET    | `/healths`               | Health check endpoint          |
+| GET    | `/health`                | Health check endpoint          |
 
 # 🛠 Setup
 
@@ -89,6 +89,10 @@ REDIS_URL=redis://localhost:6379
 POSTGRES_URL=postgres://user:password@localhost:5432/hookshot
 DLQ_QUEUE_NAME=hookspot-delivery-dlq
 RETRY_QUEUE_NAME=hookspot-delivery
+
+### 3. Create Database tables using Knex Migrations
+
+npx knex --knexfile knexfile.ts migrate:latest
 
 ### 3. Start Services
 
