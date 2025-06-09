@@ -66,12 +66,13 @@ Webhooks often fail due to downtime, rate limits, or flaky receivers. This servi
 
 ## 🔌 Available Endpoints
 
-| Method | Endpoint                 | Description                    |
-| ------ | ------------------------ | ------------------------------ |
-| POST   | `/webhooks`              | Register and trigger a webhook |
-| GET    | `/webhooks/:id/attempts` | List all delivery attempts     |
-| GET    | `/webhooks/:id/status`   | Get current delivery status    |
-| GET    | `/health`                | Health check endpoint          |
+| Method | Endpoint                     | Description                    |
+| ------ | ---------------------------- | ------------------------------ |
+| POST   | `/api/webhooks`              | Register and trigger a webhook |
+| GET    | `/api/webhooks/:id/attempts` | List all delivery attempts     |
+| GET    | `/api/webhooks/:id/status`   | Get current delivery status    |
+| GET    | `/api/health`                | Health check endpoint          |
+| GET    | `/docs`                      | Swagger API Documentation      |
 
 ## 📖 API Documentation
 
