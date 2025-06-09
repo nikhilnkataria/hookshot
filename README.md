@@ -72,7 +72,6 @@ Webhooks often fail due to downtime, rate limits, or flaky receivers. This servi
 | GET    | `/webhooks/:id/attempts` | List all delivery attempts     |
 | GET    | `/webhooks/:id/status`   | Get current delivery status    |
 | GET    | `/health`                | Health check endpoint          |
-| GET    | `/docs`                  | Swagger UI (interactive docs)  |
 
 ## 📖 API Documentation
 
@@ -86,7 +85,7 @@ http://localhost:3000/docs
 
 ### 1. Clone and Install
 
-```
+```install
 git clone https://github.com/nikhilnkataria/hookspot.git
 cd hookspot
 npm install
@@ -106,7 +105,7 @@ RETRY_QUEUE_NAME=hookspot-delivery
 
 ### 3. Create Database tables using Knex Migrations
 
-```
+```tables
 npx knex --knexfile knexfile.ts migrate:latest
 ```
 
@@ -114,7 +113,7 @@ npx knex --knexfile knexfile.ts migrate:latest
 
 Start the main API:
 
-```
+```run
 npm run dev
 ```
 
