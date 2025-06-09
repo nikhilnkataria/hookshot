@@ -85,7 +85,7 @@ http://localhost:3000/docs
 
 ### 1. Clone and Install
 
-```install
+```bash
 git clone https://github.com/nikhilnkataria/hookspot.git
 cd hookspot
 npm install
@@ -105,7 +105,7 @@ RETRY_QUEUE_NAME=hookspot-delivery
 
 ### 3. Create Database tables using Knex Migrations
 
-```tables
+```bash
 npx knex --knexfile knexfile.ts migrate:latest
 ```
 
@@ -113,7 +113,7 @@ npx knex --knexfile knexfile.ts migrate:latest
 
 Start the main API:
 
-```run
+```bash
 npm run dev
 ```
 
