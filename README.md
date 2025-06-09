@@ -22,6 +22,7 @@ Webhooks often fail due to downtime, rate limits, or flaky receivers. This servi
 - ✅ Delivery status tracking: `pending`, `retrying`, `delivered`, `failed`, `dead`
 - ✅ Pluggable via REST API
 - ✅ Admin endpoints to inspect delivery attempts
+- ✅ Swagger-powered API docs for easy onboarding and testing
 
 ---
 
@@ -71,34 +72,53 @@ Webhooks often fail due to downtime, rate limits, or flaky receivers. This servi
 | GET    | `/webhooks/:id/attempts` | List all delivery attempts     |
 | GET    | `/webhooks/:id/status`   | Get current delivery status    |
 | GET    | `/health`                | Health check endpoint          |
+| GET    | `/docs`                  | Swagger UI (interactive docs)  |
+
+## 📖 API Documentation
+
+Interactive API docs are available at `/docs`. This includes schemas, request/response formats, and testable endpoints via Swagger UI.
+
+```
+http://localhost:3000/docs
+```
 
 # 🛠 Setup
 
 ### 1. Clone and Install
 
+```
 git clone https://github.com/nikhilnkataria/hookspot.git
-cd webhook-retry-manager
+cd hookspot
 npm install
+```
 
 ### 2. Configure Environment Variables
 
-Create a .env file using the template below:
+Create a `.env` file using the template below:
 
+```env
 PORT=3000
 REDIS_URL=redis://localhost:6379
 POSTGRES_URL=postgres://user:password@localhost:5432/hookshot
 DLQ_QUEUE_NAME=hookspot-delivery-dlq
 RETRY_QUEUE_NAME=hookspot-delivery
+```
 
 ### 3. Create Database tables using Knex Migrations
 
+```
 npx knex --knexfile knexfile.ts migrate:latest
+```
 
-### 3. Start Services
+### 4. Start Services
 
 Start the main API:
 
+```
 npm run dev
+```
+
+After starting the server, visit `http://localhost:3000/docs` to explore the API using Swagger UI.
 
 ## ☠️ Dead Letter Queue (DLQ)
 
@@ -117,12 +137,12 @@ Jobs that fail after all retry attempts go into the DLQ. You can:
 
 ## 👨‍💻 Author
 
-Built by [Nikhil Kataria](https://www.linkedin.com/in/nikhilnkataria) —  
+Built by [Nikhil Kataria](https://www.linkedin.com/in/nikhilnkataria) —
 Engineering Manager | Node.js | AWS | Scalable Systems
 
-- 🔗 Portfolio: [yourdomain.com](https://nikhilkataria.com)
-- 💼 LinkedIn: [linkedin.com/in/nikhil-kataria](https://www.linkedin.com/in/nikhilnkataria)
-- 💻 GitHub: [github.com/yourusername](https://github.com/nikhilnkataria)
+- 🔗 Portfolio: [nikhilkataria.com](https://nikhilkataria.com)
+- 💼 LinkedIn: [linkedin.com/in/nikhilnkataria](https://www.linkedin.com/in/nikhilnkataria)
+- 💻 GitHub: [github.com/nikhilnkataria](https://github.com/nikhilnkataria)
 
 ## 🛡 License
 
