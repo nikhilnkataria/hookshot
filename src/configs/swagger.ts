@@ -39,6 +39,13 @@ const options = {
           },
         },
       },
+      securitySchemes: {
+        ApiKeyAuth: {
+          type: 'apiKey',
+          in: 'header',
+          name: 'x-api-key',
+        },
+      },
       responses: {
         InternalServerError: {
           description: 'Internal server error',
@@ -51,6 +58,11 @@ const options = {
           },
         },
       },
+      security: [
+        {
+          ApiKeyAuth: [],
+        },
+      ],
     },
   },
   apis: ['./src/api/routes/*.ts'],

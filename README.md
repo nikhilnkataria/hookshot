@@ -35,6 +35,19 @@ Webhooks often fail due to downtime, rate limits, or flaky receivers. This servi
 
 ---
 
+## 🔐 API Security
+
+All endpoints (except `/api/health` and `/docs`) require a valid API key to be passed in the `x-api-key` header.
+
+- To test via Swagger, click the **Authorize** button and enter your API key (`X_API_KEY` from `.env`)
+- For manual testing (e.g., Postman or curl), include the header:
+
+```http
+x-api-key: super_secret_value
+```
+
+---
+
 ## 🧪 Sample Webhook Registration Payload
 
 ```json
@@ -82,6 +95,8 @@ Interactive API docs are available at `/docs`. This includes schemas, request/re
 http://localhost:3000/docs
 ```
 
+> 🔐 **Note**: All API endpoints (except `/health` and `/docs`) are protected via an `x-api-key` header. Use the `Authorize` button in Swagger to test authenticated endpoints.
+
 # 🛠 Setup
 
 ### 1. Clone and Install
@@ -98,10 +113,11 @@ Create a `.env` file using the template below:
 
 ```env
 PORT=3000
+X_API_KEY=super_secret_value
 REDIS_URL=redis://localhost:6379
-POSTGRES_URL=postgres://user:password@localhost:5432/hookshot
-DLQ_QUEUE_NAME=hookspot-delivery-dlq
 RETRY_QUEUE_NAME=hookspot-delivery
+DLQ_QUEUE_NAME=hookspot-delivery-dlq
+POSTGRES_URL=postgres://user:password@localhost:5432/hookshot
 ```
 
 ### 3. Create Database tables using Knex Migrations

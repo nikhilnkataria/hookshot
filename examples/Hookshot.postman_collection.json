@@ -31,7 +31,13 @@
 			"name": "Register Webhook",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "super_secret_value",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n  \"target_url\": \"https://client.example.com/webhook\",\n  \"payload\": {\n    \"event\": \"order.placed\",\n    \"data\": {\n      \"order_id\": \"ORD-1234\",\n      \"amount\": 499,\n      \"currency\": \"INR\"\n    }\n  },\n  \"headers\": {\n    \"Authorization\": \"Bearer abc123\",\n    \"Content-Type\": \"application/json\"\n  },\n  \"meta\": {\n    \"source\": \"checkout-service\",\n    \"project_id\": \"project-xyz789\"\n  },\n  \"retry_config\": {\n    \"max_attempts\": 3,\n    \"initial_delay_ms\": 1000,\n    \"backoff_strategy\": \"exponential\"\n  }\n}\n",
@@ -60,7 +66,13 @@
 			"name": "Get Webhook Status",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "super_secret_value",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:3000/api/webhooks/ca0be508-ccc0-41c2-a8e4-3089bffd038e/status",
 					"protocol": "http",
@@ -82,7 +94,13 @@
 			"name": "List Webhook Attempts",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "super_secret_value",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:3000/api/webhooks/ca0be508-ccc0-41c2-a8e4-3089bffd038e/attempts",
 					"protocol": "http",

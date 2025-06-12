@@ -89,6 +89,8 @@ const router = Router();
  *                     enum: [exponential, fixed, linear]
  *                     description: Retry delay strategy.
  *                     example: exponential
+ *     security:
+ *       - ApiKeyAuth: []
  *     responses:
  *       202:
  *         description: Webhook accepted for processing
@@ -154,6 +156,8 @@ router.post('/', validateBody(webhookSchema), addWebhook);
  *           type: string
  *           format: uuid
  *         description: The ID of the webhook
+ *     security:
+ *       - ApiKeyAuth: []
  *     responses:
  *       200:
  *         description: Latest status of the webhook
@@ -270,6 +274,8 @@ router.get(
  *           type: string
  *           format: uuid
  *         description: The ID of the webhook
+ *     security:
+ *       - ApiKeyAuth: []
  *     responses:
  *       200:
  *         description: List of delivery attempts for the given webhook
