@@ -12,8 +12,6 @@ Webhooks often fail due to downtime, rate limits, or flaky receivers. This servi
 - Dead-letter queue for persistent failures
 - Full delivery visibility via APIs
 
----
-
 ## ⚙️ Features
 
 - ✅ Retry on timeout, 5xx, and connection errors
@@ -23,8 +21,7 @@ Webhooks often fail due to downtime, rate limits, or flaky receivers. This servi
 - ✅ Pluggable via REST API
 - ✅ Admin endpoints to inspect delivery attempts
 - ✅ Swagger-powered API docs for easy onboarding and testing
-
----
+- ✅ Split process model: run API server and queue worker independently
 
 ## 📦 Tech Stack
 
@@ -32,8 +29,6 @@ Webhooks often fail due to downtime, rate limits, or flaky receivers. This servi
 - **PostgreSQL** (Knex.js)
 - **BullMQ** (Redis-backed queue)
 - **Redis** for job management
-
----
 
 ## 🔐 API Security
 
@@ -45,8 +40,6 @@ All endpoints (except `/api/health` and `/docs`) require a valid API key to be p
 ```http
 x-api-key: super_secret_value
 ```
-
----
 
 ## 🧪 Sample Webhook Registration Payload
 
@@ -128,7 +121,19 @@ npx knex --knexfile knexfile.ts migrate:latest
 
 ### 4. Start Services
 
-Start the main API:
+Start the API server:
+
+```bash
+npm run dev:server
+```
+
+Start the BullMQ worker (in a separate terminal tab):
+
+```bash
+npm run dev:server
+```
+
+Or run both in parallel:
 
 ```bash
 npm run dev
