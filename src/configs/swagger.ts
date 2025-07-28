@@ -6,7 +6,7 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'HookSpot API',
+      title: 'HookShot API',
       version: '1.0.0',
       description: 'Reliable webhook delivery with retry logic and DLQ',
     },

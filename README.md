@@ -1,4 +1,4 @@
-# 🔁 HookSpot - Webhook Retry Manager
+# 🔁 HookShot - Webhook Retry Manager
 
 A production-ready, plug-and-play backend queue-based delivery service for **reliable webhook delivery with retry logic**, dead letter queue (DLQ) handling, and visibility APIs.
 
@@ -95,8 +95,8 @@ http://localhost:3000/docs
 ### 1. Clone and Install
 
 ```bash
-git clone https://github.com/nikhilnkataria/hookspot.git
-cd hookspot
+git clone https://github.com/nikhilnkataria/hookshot.git
+cd hookshot
 npm install
 ```
 
@@ -108,8 +108,8 @@ Create a `.env` file using the template below:
 PORT=3000
 X_API_KEY=super_secret_value
 REDIS_URL=redis://localhost:6379
-RETRY_QUEUE_NAME=hookspot-delivery
-DLQ_QUEUE_NAME=hookspot-delivery-dlq
+RETRY_QUEUE_NAME=hookshot-delivery
+DLQ_QUEUE_NAME=hookshot-delivery-dlq
 POSTGRES_URL=postgres://user:password@localhost:5432/hookshot
 ```
 

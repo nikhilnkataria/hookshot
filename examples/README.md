@@ -1,6 +1,6 @@
 ## 📘 Postman
 
-You can import the following collection into Postman to test HookSpot’s API:
+You can import the following collection into Postman to test HookShot's API:
 
 📥 [Download Postman Collection](./Hookshot.postman_collection.json)
 
